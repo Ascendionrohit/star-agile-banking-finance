@@ -47,7 +47,7 @@ pipeline {
                 sh "docker push sainirohit82733/banking-rohit:latest"
             }
         }
-        stage('Config & Deployment') {
+        stage('Config production server') {
             steps {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '471112607464', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     dir('terraform-files') {
