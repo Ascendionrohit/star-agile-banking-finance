@@ -58,5 +58,9 @@ pipeline {
                 }
             }
         }
-    }
+        stage('Config production server') {
+            steps {
+                ansiblePlaybook credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/var/lib/jenkins/workspace/Banking/ansible-playbook.yml', vaultTmpPath
+
+}
 }
